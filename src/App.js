@@ -6,11 +6,13 @@ import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 
 import MenuBar from './components/MenuBar'
+import Home from './pages/Home'
 
 const App = () => (
   <Router>
     <Container>
       <MenuBar />
+      <Route exact path="/" component={Home} />
     </Container>
   </Router>
 )
