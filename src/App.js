@@ -7,12 +7,14 @@ import './App.css';
 
 import MenuBar from './components/MenuBar'
 import Home from './pages/Home'
+import Register from './pages/Register'
 
 const App = () => (
   <Router>
     <Container>
       <MenuBar />
       <Route exact path="/" component={Home} />
+      <Route exact path="/register" component={Register} />
     </Container>
   </Router>
 )
