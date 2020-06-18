@@ -13,6 +13,7 @@ const PostForm = () => {
 
     function createPostCallback() {
         createPost();
+        window.location.reload(false)
     }
 
     const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
