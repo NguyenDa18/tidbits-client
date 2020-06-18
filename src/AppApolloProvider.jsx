@@ -17,7 +17,7 @@ const authLink = setContext(() => {
         Authorization: token ? `Bearer ${token}` : ''
       }
     };
-  });
+});
 
 const client = new ApolloClient({
     link: authLink.concat(httpLink),
@@ -26,7 +26,7 @@ const client = new ApolloClient({
 
 const AppApolloProvider = () => (
     <ApolloProvider client={client}>
-        <App />
+      <App />
     </ApolloProvider>
 )
 
