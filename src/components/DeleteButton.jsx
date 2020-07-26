@@ -31,13 +31,12 @@ const DeleteButton = ({ postId, commentId, callback }) => {
       return (
         <>
             <MyPopup content={commentId ? 'Delete comment' : 'Delete post'}>
-                <Button
-                    as="div"
-                    color="red"
-                    floated="right"
-                    onClick={() => setConfirmOpen(true)}
-                >
-                    <Icon name="trash" style={{ margin: 0 }} />
+                <Button labelPosition="right">
+                  <Button
+                      color="red"
+                      onClick={() => setConfirmOpen(true)}>
+                      <Icon name="trash" style={{ margin: 0 }} />
+                  </Button>
                 </Button>
             </MyPopup>
             <Confirm
