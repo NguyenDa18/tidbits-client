@@ -28,19 +28,24 @@ const PostCard = ({
                 <Card.Description>{body}</Card.Description>
             </Card.Content>
             <Card.Content extra>
+                <div>
                 <LikeButton user={user} post={{ id, likes, likeCount }} />
                 <MyPopup content="Comment on post">
                     <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
                         <Button color="blue" basic>
-                        <Icon name="comments" />
+                            <Icon name="comments" />
                         </Button>
                         <Label basic color="blue" pointing="left">
-                        {commentCount}
+                            {commentCount}
                         </Label>
                     </Button>
                 </MyPopup>
                 {user && user.username === username && 
-                    <DeleteButton postId={id} callback={() => window.location.reload(false)} />}
+                    <>
+                        <DeleteButton postId={id} callback={() => window.location.reload(false)} />
+                    </>
+                }
+                </div>
             </Card.Content>
         </Card>
     )

@@ -14,7 +14,7 @@ const LikeButton = ({ user, post: { id, likeCount, likes }}) => {
         if (user && likes.find((like) => like.username === user.username)) {
           setLiked(liked => true);
         } else setLiked(liked => false);
-      }, [user, likes]);
+    }, [user, likes]);
 
     const [likePost] = useMutation(LIKE_POST_MUTATION, {
         variables: { postId: id }
@@ -43,7 +43,7 @@ const LikeButton = ({ user, post: { id, likeCount, likes }}) => {
             {likeCount}
           </Label>
         </Button>
-      );
+    );
 }
 
 export default LikeButton
