@@ -24,8 +24,8 @@ const MenuBar = () => {
     ) : (
         <Menu pointing secondary size="massive" color="teal">
             <Menu.Item 
-                name="home"
-                active={activeItem === 'home'}
+                name="tidbits"
+                active={activeItem === 'tidbits'}
                 onClick={handleItemClick}
                 as={Link}
                 to="/"

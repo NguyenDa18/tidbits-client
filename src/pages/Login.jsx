@@ -15,25 +15,25 @@ const Login = (props) => {
         password: ''
     });
 
+    const [loginUser, { loading }] = useMutation(LOGIN_USER, {
+      update(
+        _,
+        {
+          data: { login: userData }
+        }
+      ) {
+        context.login(userData);
+        props.history.push('/');
+      },
+      onError(err) {
+        setErrors(err.graphQLErrors && err.graphQLErrors[0].extensions.exception.errors);
+      },
+      variables: values
+    });
+
     function loginUserCallback() {
         loginUser();
-      }
-
-      const [loginUser, { loading }] = useMutation(LOGIN_USER, {
-        update(
-          _,
-          {
-            data: { login: userData }
-          }
-        ) {
-          context.login(userData);
-          props.history.push('/');
-        },
-        onError(err) {
-          setErrors(err.graphQLErrors[0].extensions.exception.errors);
-        },
-        variables: values
-      });
+    }
 
       return (
         <div className="form-container">
