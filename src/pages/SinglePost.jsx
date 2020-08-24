@@ -44,6 +44,8 @@ const SinglePost = (props) => {
       body: comment
     }
   });
+
+  const deletePostCallback = () => props.history.push('/')
   
   let postMarkup
   if (!data) {
@@ -94,7 +96,9 @@ const SinglePost = (props) => {
                     </Label>
                   </Button>
                 </MyPopup>
-                
+                {user && user.username === username && (
+                  <DeleteButton postId={id} callback={deletePostCallback} />
+                )}
               </Card.Content>
             </Card>
             {user && (
@@ -127,13 +131,17 @@ const SinglePost = (props) => {
             {comments.map((comment) => (
               <Card fluid key={comment.id}>
                 <Card.Content>
-                  {user && user.username === comment.username && (
-                    <DeleteButton postId={id} commentId={comment.id} />
-                  )}
                   <Card.Header>{comment.username}</Card.Header>
                   <Card.Meta>{moment(comment.createdAt).fromNow()}</Card.Meta>
                   <Card.Description>{comment.body}</Card.Description>
                 </Card.Content>
+                <Card.Content extra>
+                <div className='ui two buttons'>
+                  {user && user.username === comment.username && (
+                    <DeleteButton postId={id} commentId={comment.id} callback={deletePostCallback} />
+                  )}
+                </div>
+              </Card.Content>
               </Card>
             ))}
           </Grid.Column>
