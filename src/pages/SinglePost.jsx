@@ -68,7 +68,7 @@ const SinglePost = (props) => {
         <Grid.Row>
           <Grid.Column width={2}>
               <Image
-                src="https://react.semantic-ui.com/images/avatar/large/molly.png"
+                src={`https://icotar.com/avatar/${username}`}
                 size="small"
                 float="right"
               />
@@ -77,7 +77,7 @@ const SinglePost = (props) => {
             <Card fluid>
               <Card.Content>
                 <Card.Header>{username}</Card.Header>
-                <Card.Meta>{createdAt}</Card.Meta>
+                <Card.Meta>{moment(createdAt).format('lll')}</Card.Meta>
                 <Card.Description>{body}</Card.Description>
               </Card.Content>
               <hr />
