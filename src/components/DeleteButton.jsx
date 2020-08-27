@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { Button, Confirm, Icon } from 'semantic-ui-react';
+import { Button, Confirm } from 'semantic-ui-react';
 
 import MyPopup from './MyPopup'
 
@@ -34,8 +34,10 @@ const DeleteButton = ({ postId, commentId, callback }) => {
                 <Button labelPosition="right">
                   <Button
                       color="red"
+                      content="Delete Comment"
+                      icon="trash"
+                      labelPosition="left"
                       onClick={() => setConfirmOpen(true)}>
-                      <Icon name="trash" style={{ margin: 0 }} />
                   </Button>
                 </Button>
             </MyPopup>

@@ -14,7 +14,7 @@ const MenuBar = () => {
 
     const menuBar = user ? 
     (
-        <Menu pointing secondary size="massive" color="teal">
+        <Menu pointing secondary size="massive" color="teal" inverted>
             <Menu.Item name={user.username} active as={Link} to="/" />
     
             <Menu.Menu position="right">
@@ -22,7 +22,7 @@ const MenuBar = () => {
             </Menu.Menu>
         </Menu>
     ) : (
-        <Menu pointing secondary size="massive" color="teal">
+        <Menu pointing secondary size="massive" color="teal" inverted>
             <Menu.Item 
                 name="tidbits"
                 active={activeItem === 'tidbits'}

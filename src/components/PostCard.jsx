@@ -14,7 +14,7 @@ const PostCard = ({
     const { user } = useContext(AuthContext);
     
     return (
-        <Card fluid>
+        <Card fluid raised>
             <Card.Content>
                 <Image
                     floated="right"
@@ -28,7 +28,7 @@ const PostCard = ({
                 <Card.Description>{body}</Card.Description>
             </Card.Content>
             <Card.Content extra>
-                <div>
+                <div className="ui two buttons">
                 <LikeButton user={user} post={{ id, likes, likeCount }} />
                 <MyPopup content="Comment on post">
                     <Button labelPosition="right" as={Link} to={`/posts/${id}`}>
@@ -40,12 +40,14 @@ const PostCard = ({
                         </Label>
                     </Button>
                 </MyPopup>
-                {user && user.username === username && 
-                    <>
-                        <DeleteButton postId={id} callback={() => window.location.reload(false)} />
-                    </>
-                }
                 </div>
+            </Card.Content>
+            <Card.Content extra>
+                {user && user.username === username && 
+                    <div className="ui two buttons">
+                        <DeleteButton postId={id} callback={() => window.location.reload(false)} />
+                    </div>
+                }
             </Card.Content>
         </Card>
     )
