@@ -6,8 +6,10 @@ import { createHttpLink } from 'apollo-link-http'
 import { ApolloProvider } from '@apollo/react-hooks'
 import { setContext } from 'apollo-link-context'
 
+const uri = process.env.NODE_ENV !== 'development' ? "" : "http://localhost:8000/graphql"
+
 const httpLink = createHttpLink({
-    uri: 'http://localhost:8000/graphql'
+    uri
 })
 
 const authLink = setContext(() => {
